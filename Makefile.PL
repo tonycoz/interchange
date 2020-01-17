@@ -443,6 +443,7 @@ EOF
 
 		# install share/ files from MANIFEST
 		chomp(my @sharefiles = grep m:^share/:, @files);
+		print "Shared files @sharefiles\n";
 		install_file('.', $realdir, $_) for @sharefiles;
 		# install code/ files from MANIFEST
 		chomp(my @codefiles = grep m:^code/:, @files);
@@ -478,6 +479,7 @@ EOF
 		# install dist/ files from MANIFEST
 		print "Installing dist/ files\n";
 		@files = grep m:^dist/:, @files;
+		print "Dist files @files\n";
 		chomp(@files);
 		@files = map { s:^dist/::; $_} @files;
 
